@@ -10,7 +10,7 @@ h1 {
 }
 
 h1:hover {
-  background-color: #ff4500;
+  background-color: #808000;
 }
 
 /* Стилі для навігації */
@@ -40,7 +40,7 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #ff4500;
+  background-color: #808000;
   color: white;
 }
 
@@ -67,7 +67,7 @@ h2 {
 }
 
 h2:hover {
-  background-color: #ff4500;
+  background-color: #808000;
 }
 
 p {
@@ -89,7 +89,7 @@ p:hover {
 /* Стилі для футера */
 footer {
   background-color: #333;
-  color: white;
+  color: bleack;
   padding: 1em;
   text-align: center;
 }
