@@ -1,0 +1,41 @@
+/* Динамічний стиль */
+
+nav ul li a:hover {
+    color: #FF4136; /* Червоний колір для тексту елементів меню при наведенні */
+    transition: all 0.3s ease-in-out; /* Плавна анімація при зміні кольору */
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+    text-transform: uppercase;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #001F3F;
+    color: white;
+    padding: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+    text-align: center;
+}
+
+main {
+    margin: 20px;
+}
+
+footer {
+    background-color: #001F3F;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

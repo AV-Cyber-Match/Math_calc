@@ -1,0 +1,98 @@
+/* Стилі для заголовка */
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Стилі для навігації */
+nav {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+nav ul li a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Стилі для основного контенту */
+main {
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #555;
+  font-size: 1.2rem;
+}
+
+/* Стилі для підвалу */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  animation: slideUp 0.5s ease-in-out;
+}
+
+/* Анімації та переходи */
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+a {
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  transform: scale(1.05);
+}
+
+section:nth-child(even) {
+  transform: translateX(50%);
+}
+
+section:nth-child(odd) {
+  transform: translateX(-50%);
+}

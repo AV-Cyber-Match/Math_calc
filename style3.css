@@ -1,0 +1,75 @@
+/* Стилі для заголовків */
+h1, h2 {
+  color: #fff;
+  text-align: center;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px #555;
+}
+
+/* Стилі для меню */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+}
+
+nav li {
+  margin: 0 1em;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px #555;
+  transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #ff0;
+  text-shadow: 2px 2px #555;
+}
+
+/* Стилі для основного вмісту */
+main {
+  background-color: #f2f2f2;
+  padding: 2em;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.1em;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+main section {
+  margin-bottom: 2em;
+  border-bottom: 1px solid #555;
+}
+
+main h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  text-shadow: 1px 1px #fff;
+}
+
+main p {
+  color: #333;
+}
+
+/* Стилі для футера */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.9em;
+  text-shadow: 1px 1px #555;
+}

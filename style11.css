@@ -1,0 +1,59 @@
+nav a:hover {
+  color: #00FFFF;
+  border-bottom: 2px solid #00FFFF;
+  transition: all 0.3s ease;
+}
+
+nav a::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #FFF;
+  transition: all 0.3s ease;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+header h1 {
+  animation: fade-in 1s ease;
+}
+
+nav {
+  animation: slide-down 1s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+header {
+  background-color: #000;
+  padding: 10px;
+  border-top: 5px solid #00FFFF;
+  border-bottom: 5px solid #00FFFF;
+  text-align: center;
+  transition: background-color 0.5s ease;
+}
+
+header:hover {
+  background-color: #222;
+}
