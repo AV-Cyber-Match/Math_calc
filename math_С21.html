@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="math_С21.css">
+</head>
+<body>
+	<header>
+		<h1></h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Головна</a></li>
+				<li><a href="math.html">Математика</a></li>
+				<li><a href="physics.html">Фізика</a></li>
+				<li><a href="geometry.html">Геометрія</a></li>
+			</ul>
+		</nav>
+	</header>
+
+<main>
+	<h1>Калькулятор квадратних рівнянь</h1>
+
+	<form>
+		<input type="text" id="a" placeholder="a">
+		<span>x<sup>2</sup> + </span>
+		<input type="text" id="b" placeholder="b">
+		<span>x + </span>
+		<input type="text" id="c" placeholder="c">
+		<span> = 0</span>
+		<br><br>
+		<input type="button" value="Розв'язати" onclick="solveEquation()">
+		<input type="reset" value="Очистити">
+	</form>
+
+	<p id="result"></p>
+
+	<script>
+		function solveEquation() {
+			let a = parseFloat(document.getElementById("a").value);
+			let b = parseFloat(document.getElementById("b").value);
+			let c = parseFloat(document.getElementById("c").value);
+
+			let result = document.getElementById("result");
+
+			if (isNaN(a) || isNaN(b) || isNaN(c)) {
+				result.innerHTML = "Введіть коректні значення!";
+			} else if (a === 0) {
+				result.innerHTML = "a не може дорівнювати 0!";
+			} else {
+				let discriminant = Math.pow(b, 2) - 4 * a * c;
+				let x1, x2;
+
+				if (discriminant > 0) {
+					x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+					x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+					result.innerHTML = "Результат: x<sub>1</sub> = " + x1.toFixed(2) + ", x<sub>2</sub> = " + x2.toFixed(2);
+				} else if (discriminant === 0) {
+					x1 = -b / (2 * a);
+					result.innerHTML = "Результат: x<sub>1</sub> = x<sub>2</sub> = " + x1.toFixed(2);
+				} else {
+					result.innerHTML = "Дискримінант менше нуля, рівняння не має розв'язків!";
+				}
+			}
+		}
+	</script>
+</main>
+
+
+<footer>
+	<p>&copy; 2023 Всі права захищені.</p>
+</footer>
+
+</body>
+</html>
