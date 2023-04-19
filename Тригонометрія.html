@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="Тригонометрі.css">
+</head>
+<body>
+	<header>
+		<h1></h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Головна</a></li>
+				<li><a href="math.html">Математика</a></li>
+				<li><a href="physics.html">Фізика</a></li>
+				<li><a href="geometry.html">Геометрія</a></li>
+			</ul>
+		</nav>
+	</header>
+
+<main>
+	<h1>Тригонометричний калькулятор</h1>
+
+	<h2>Знаходження кута за значенням</h2>
+	<form>
+		<label for="function">Функція:</label>
+		<select id="function">
+			<option value="sin">sin</option>
+			<option value="cos">cos</option>
+			<option value="tan">tan</option>
+			<option value="cot">cot</option>
+		</select>
+
+		<label for="value">Значення:</label>
+		<input type="number" id="value" step="0.01">
+
+		<button type="button" onclick="calculateAngle()">Обчислити</button>
+	</form>
+
+	<p id="result1"></p>
+
+	<h2>Знаходження значення за кутом</h2>
+	<form>
+		<label for="operation">Операція:</label>
+		<select id="operation">
+			<option value="sin">sin</option>
+			<option value="cos">cos</option>
+			<option value="tan">tan</option>
+			<option value="cot">cot</option>
+		</select>
+
+		<label for="angle">Кут:</label>
+		<input type="number" id="angle" step="0.01">
+
+		<button type="button" onclick="calculateValue()">Обчислити</button>
+	</form>
+
+	<p id="result2"></p>
+
+	<script>
+		function calculateAngle() {
+			let func = document.getElementById("function").value;
+			let value = parseFloat(document.getElementById("value").value);
+			let result = document.getElementById("result1");
+
+			if (isNaN(value)) {
+				result.innerHTML = "Введіть коректне значення!";
+			} else {
+				let radians = Math.asin(value);
+
+				switch(func) {
+					case "sin":
+						break;
+					case "cos":
+						radians = Math.acos(value);
+						break;
+					case "tan":
+						radians = Math.atan(value);
+						break;
+					case "cot":
+						radians = Math.atan(1 / value);
+						break;
+				}
+
+				let degrees = radians * 180 / Math.PI;
+
+				result.innerHTML = "Результат: " + degrees.toFixed(2) + "°";
+			}
+		}
+
+		function calculateValue() {
+			let operation = document.getElementById("operation").value;
+			let angle = parseFloat(document.getElementById("angle").value);
+			let result = document.getElementById("result2");
+
+			if (isNaN(angle)) {
+				result.innerHTML = "Введіть коректний кут!";
+			} else {
+				let radians = angle * Math.PI / 180;
+				let answer;
+
+				switch(operation) {
+					case "sin":
+						answer = Math.sin(radians);
+						break;
+					case "cos":
+						answer = Math.cos(radians);
+						break;
+					case "tan":
+						answer = Math.tan(radians);
+						break;
+					case "cot":
+						answer = 1 / Math.tan(radians);
+						break;
+				}
+
+				result.innerHTML = "Результат: " + answer.toFixed(2);
+			}
+	
+        }
+</script>
+</body>
+</html>

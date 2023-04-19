@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Калькулятор прямокутних трикутників</title>
+</head>
+<body>
+	<h1>Калькулятор прямокутних трикутників</h1>
+
+	<h2>Знаходження катету</h2>
+	<form>
+		<label for="hypotenuse">Гіпотенуза:</label>
+		<input type="number" id="hypotenuse" step="0.01">
+
+		<label for="leg">Катет:</label>
+		<input type="number" id="leg" step="0.01">
+
+		<button type="button" onclick="calculateLeg()">Обчислити</button>
+	</form>
+
+	<p id="result1"></p>
+
+	<h2>Знаходження гіпотенузи</h2>
+	<form>
+		<label for="leg1">Перший катет:</label>
+		<input type="number" id="leg1" step="0.01">
+
+		<label for="leg2">Другий катет:</label>
+		<input type="number" id="leg2" step="0.01">
+
+		<button type="button" onclick="calculateHypotenuse()">Обчислити</button>
+	</form>
+
+	<p id="result2"></p>
+
+	<h2>Знаходження кутів</h2>
+	<form>
+		<label for="opposite">Протилежний катет:</label>
+		<input type="number" id="opposite" step="0.01">
+
+		<label for="adjacent">Прилеглий катет:</label>
+		<input type="number" id="adjacent" step="0.01">
+
+		<button type="button" onclick="calculateAngles()">Обчислити</button>
+	</form>
+
+	<p id="result3"></p>
+
+	<script>
+		function calculateLeg() {
+			let hypotenuse = parseFloat(document.getElementById("hypotenuse").value);
+			let leg = parseFloat(document.getElementById("leg").value);
+			let result = document.getElementById("result1");
+
+			if (isNaN(hypotenuse) || isNaN(leg)) {
+				result.innerHTML = "Введіть коректні значення!";
+			} else {
+				let legSquared = Math.pow(hypotenuse, 2) - Math.pow(leg, 2);
+				let legValue = Math.sqrt(legSquared);
+
+				result.innerHTML = "Результат: " + legValue.toFixed(2);
+			
+
+}
+
+	function calculateHypotenuse() {
+		let leg1 = parseFloat(document.getElementById("leg1").value);
+		let leg2 = parseFloat(document.getElementById("leg2").value);
+		let result = document.getElementById("result2");
+
+		if (isNaN(leg1) || isNaN(leg2)) {
+			result.innerHTML = "Введіть коректні значення!";
+		} else {
+			let hypotenuseSquared = Math.pow(leg1, 2) + Math.pow(leg2, 2);
+			let hypotenuseValue = Math.sqrt(hypotenuseSquared);
+
+			result.innerHTML = "Результат: " + hypotenuseValue.toFixed(2);
+		}
+	}
+
+	function calculateAngles() {
+		let opposite = parseFloat(document.getElementById("opposite").value);
+		let adjacent = parseFloat(document.getElementById("adjacent").value);
+		let result = document.getElementById("result3");
+
+		if (isNaN(opposite) || isNaN(adjacent)) {
+			result.innerHTML = "Введіть коректні значення!";
+		} else {
+			let hypotenuseSquared = Math.pow(opposite, 2) + Math.pow(adjacent, 2);
+			let hypotenuse = Math.sqrt(hypotenuseSquared);
+			let sin = opposite / hypotenuse;
+			let cos = adjacent / hypotenuse;
+			let angle1 = Math.asin(sin) * 180 / Math.PI;
+			let angle2 = Math.acos(cos) * 180 / Math.PI;
+
+			result.innerHTML = "Результат: Кут 1 = " + angle1.toFixed(2) + "&deg;, Кут 2 = " + angle2.toFixed(2) + "&deg;";
+		}
+	}
+</script>
+</body>
+</html>
+
+
