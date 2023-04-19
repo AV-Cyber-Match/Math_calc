@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Калькулятор</title>
+	<link rel="stylesheet" href="math.css">
+</head>
+<body>
+	<header>
+		<h1>Сайт з математики, фізики та геометрії</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Головна</a></li>
+				<li><a href="math.html">Математика</a></li>
+				<li><a href="physics.html">Фізика</a></li>
+				<li><a href="geometry.html">Геометрія</a></li>
+			</ul>
+		</nav>
+	</header>
+
+<main>
+
+	<div id="calculator">
+		<h3>Калькулятор</h3>
+		<input type="number" id="input1" placeholder="Введіть перше число">
+		<input type="number" id="input2" placeholder="Введіть друге число">
+		<select id="operation">
+			<option value="add">Додати</option>
+			<option value="subtract">Відняти</option>
+			<option value="multiply">Помножити</option>
+			<option value="divide">Поділити</option>
+		</select>
+		<button onclick="calculate()">Розрахувати</button>
+		<p id="result"></p>
+	</div>
+	
+</main>
+
+
+<footer>
+	<p>&copy; 2023 Всі права захищені.</p>
+</footer>
+
+<script>
+	function calculate() {
+		let input1 = document.getElementById("input1").value;
+		let input2 = document.getElementById("input2").value;
+		let operation = document.getElementById("operation").value;
+		let result;
+		if (operation === "add") {
+			result = Number(input1) + Number(input2);
+		} else if (operation === "subtract") {
+			result = input1 - input2;
+		} else if (operation === "multiply") {
+			result = input1 * input2;
+		} else if (operation === "divide") {
+			result = input1 / input2;
+		}
+		document.getElementById("result").innerHTML = "Результат: " + result;
+	}
+</script>
+</body>
+</html>
