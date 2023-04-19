@@ -53,14 +53,17 @@
 			} else {
 				let discriminant = Math.pow(b, 2) - 4 * a * c;
 				let x1, x2;
+				
 
 				if (discriminant > 0) {
 					x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
 					x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-					result.innerHTML = "Результат: x<sub>1</sub> = " + x1.toFixed(2) + ", x<sub>2</sub> = " + x2.toFixed(2);
+					result.innerHTML = "Дискримінант: D  = " + discriminant.toFixed(2)+"\n"+"<br>" +
+					"Результат: x<sub>1</sub> = " + x1.toFixed(2) + ", x<sub>2</sub> = " + x2.toFixed(2);
 				} else if (discriminant === 0) {
 					x1 = -b / (2 * a);
-					result.innerHTML = "Результат: x<sub>1</sub> = x<sub>2</sub> = " + x1.toFixed(2);
+					result.innerHTML = "Дискримінант: D  = " + discriminant.toFixed(2)+"\n"+"<br>" +
+					"Результат: x<sub>1</sub> = x<sub>2</sub> = " + x1.toFixed(2);
 				} else {
 					result.innerHTML = "Дискримінант менше нуля, рівняння не має розв'язків!";
 				}
