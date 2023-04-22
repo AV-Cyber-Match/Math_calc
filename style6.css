@@ -94,40 +94,41 @@ footer {
   text-align: center;
 }
 form {
-  max-width: 500px;
+  width: 400px;
   margin: 0 auto;
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="tel"],
+select,
+button {
   width: 100%;
   padding: 10px;
-  border-radius: 5px;
-  border: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
   margin-bottom: 20px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-button[type="submit"] {
+input[type="date"] {
+  width: 50%;
+}
+
+button {
   background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+  color: #fff;
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+button:hover {
   background-color: #3e8e41;
 }
 
@@ -135,14 +136,16 @@ input:invalid {
   border-color: red;
 }
 
-input:focus:invalid {
-  outline: none;
-  border-color: red;
-  box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.2);
+input:valid {
+  border-color: green;
 }
 
-input:focus:valid {
-  outline: none;
-  border-color: #4CAF50;
-  box-shadow: 0px 0px 5px rgba(76, 175, 80, 0.4);
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.success {
+  color: green;
+  margin-bottom: 10px;
 }
