@@ -72,48 +72,12 @@ footer {
   border-top: 1px solid #ccc;
   color: #666;
 }
-form {
-  animation: fadein 1s;
-  opacity: 0;
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-form.invalid {
-  animation: shake 0.5s;
-}
-
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(-10px);
-  }
-  40% {
-    transform: translateX(10px);
-  }
-  60% {
-    transform: translateX(-10px);
-  }
-  80% {
-    transform: translateX(10px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-button {
-  background-color: #3498db;
+/* Анімація для кнопки "Розв'язати" */
+.button {
+  background-color: #4CAF50; /* Зелений колір */
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -121,21 +85,41 @@ button {
   margin: 4px 2px;
   cursor: pointer;
   transition-duration: 0.4s;
-  animation: pulse 2s infinite;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
 
-button:hover {
-  background-color: #2980b9;
+.button:hover {
+  background-color: #555555; /* Сірий колір */
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+/* Анімація моргання */
+@keyframes blink {
+  from {color: #ffffff;}
+  to {color: #4CAF50;}
+}
+
+/* Динаміка для футера */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  animation-name: slideUp;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Анімація зсуву вгору */
+@keyframes slideUp {
+  from {bottom: -50px;}
+  to {bottom: 0;}
 }
