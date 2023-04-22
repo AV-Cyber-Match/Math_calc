@@ -25,49 +25,25 @@
 <main>
 
 	<form>
-	<input type="text" id="a" placeholder="a">
+	<input class="entry" type="text" id="a" placeholder="a">
 	<span>x<sup>3</sup> + </span>
-	<input type="text" id="b" placeholder="b">
+	<input class="entry" type="text" id="b" placeholder="b">
 	<span>x<sup>2</sup> + </span>
-	<input type="text" id="c" placeholder="c">
+	<input class="entry" type="text" id="c" placeholder="c">
 	<span>x + </span>
-	<input type="text" id="d" placeholder="d">
+	<input class="entry" type="text" id="d" placeholder="d">
 	<span> = 0</span>
 	<br><br>
-	<input class="button" type="button" value="Розв'язати" onclick="solveEquation()">
-	<input  class="button" type="reset" value="Очистити">
+	<input  class="button1" type="button" value="Розв'язати" onclick="solveEquation()">
+	<input  class="button1" type="reset" value="Очистити">
 </form>
 
-<p id="result"></p>
+<p class="entry1" id="result"></p>
 
-
-<script>
-function solveEquation() {
-  let a = parseFloat(document.getElementById("a").value);
-  let b = parseFloat(document.getElementById("b").value);
-  let c = parseFloat(document.getElementById("c").value);
-  let d = parseFloat(document.getElementById("d").value);
-
-  let result = document.getElementById("result");
-
-  if (isNaN(a) || isNaN(b) || isNaN(c) || isNaN(d)) {
-    result.innerHTML = "Введіть коректні значення!";
-  } else if (a === 0) {
-    result.innerHTML = "Це не кубічне рівняння!";
-  } else {
-    let delta0 = b*b - 3*a*c;
-    let delta1 = 2*b*b*b - 9*a*b*c + 27*a*a*d;
-    let C = Math.cbrt((delta1 + Math.sqrt(delta1*delta1 - 4*delta0*delta0*delta0)) / 2);
-    let x1 = (-1*b + C + delta0/C) / (3*a);
-    let x2 = (-1*b - (1/2)*(C + Math.sqrt(3)*Math.sqrt(delta0))/C - (1/2)*Math.sqrt(3)*(C - Math.sqrt(3)*Math.sqrt(delta0))/C*i) / (3*a);
-    let x3 = (-1*b - (1/2)*(C - Math.sqrt(3)*Math.sqrt(delta0))/C - (1/2)*Math.sqrt(3)*(C + Math.sqrt(3)*Math.sqrt(delta0))/C*i) / (3*a);
-
-    result.innerHTML = "x1 = " + x1 + ", x2 = " + x2 + ", x3 = " + x3;
-  }
-}
-</script>
-	
 </main>
+
+	
+
 
 
 <footer>
