@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Знаходження похідної</title>
+  </head>
+  <body>
+    <h1>Знаходження похідної</h1>
+    <form>
+      <label for="func">Функція:</label>
+      <input type="text" id="func" name="func" value="x*x + 2*x + 1"><br><br>
+      <label for="x">x:</label>
+      <input type="text" id="x" name="x" value="2"><br><br>
+      <input type="button" value="Обчислити" onclick="calculateDerivative()">
+    </form>
+    <div id="result"></div>
+    
+    <script>
+      // Функція для обчислення похідної
+      function derivative(func, x) {
+        var h = 0.0001; // дельта x
+        return (func(x + h) - func(x - h)) / (2 * h);
+      }
+
+      // Функція для обробки події натиснення на кнопку "Обчислити"
+      function calculateDerivative() {
+        var func = eval(document.getElementById("func").value); // отримуємо функцію з поле вводу та обчислюємо її
+        var x = parseFloat(document.getElementById("x").value); // отримуємо значення x з поле вводу та перетворюємо на число
+        var result = derivative(func, x); // обчислюємо похідну
+        document.getElementById("result").innerHTML = "Похідна функції у точці " + x + " дорівнює " + result;
+      }
+    </script>
+  </body>
+</html>

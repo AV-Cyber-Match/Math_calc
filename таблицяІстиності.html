@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Таблиця істиності</title>
+</head>
+<body>
+    <h1>Таблиця істиності</h1>
+    <label for="expression">Введіть логічний вираз:</label><br>
+    <input type="text" id="expression" name="expression"><br><br>
+    <button onclick="generateTruthTable()">Генерувати таблицю істиності</button><br><br>
+    <div id="truthTable"></div>
+
+    <script>
+        function generateTruthTable() {
+            let expression = document.getElementById("expression").value;
+            let variables = getVariables(expression);
+            let combinations = generateCombinations(variables.length);
+            let table = createTable(variables, combinations, expression);
+            document.getElementById("truthTable").innerHTML = table;
+        }
+
+        function getVariables(expression) {
+            let variables = [];
+            for (let i = 0; i < expression.length; i++) {
+                if (isLetter(expression[i]) && !variables.includes(expression[i])) {
+                    variables.push(expression[i]);
+                }
+            }
+            return variables;
+        }
+
+        function isLetter(char) {
+            return (char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z');
+        }
+
+        function generateCombinations(n) {
+            let combinations = [];
+            for (let i = 0; i < Math.pow(2, n); i++) {
+                let binary = i.toString(2);
+                while (binary.length < n) {
+                    binary = "0" + binary;
+                }
+                combinations.push(binary.split("").map(x => parseInt(x)));
+            }
+            return combinations;
+        }
+
+        function createTable(variables, combinations, expression) {
+            let table = "<table border='1'><tr>";
+            for (let variable of variables) {
+                table += "<th>" + variable + "</th>";
+            }
+            table += "<th>" + expression + "</th></tr>";
+            for (let combination of combinations) {
+                table += "<tr>";
+                for (let value of combination) {
+                    table += "<td>" + value + "</td>";
+                }
+                let result = evaluateExpression(expression, variables, combination);
+                table += "<td>" + result + "</td></tr>";
+            }
+            table += "</table>";
+            return table;
+        }
+
+        function evaluateExpression(expression, variables, combination) {
+            let newExpression = expression;
+            for (let i = 0; i < variables.length; i++) {
+                newExpression = newExpression.replaceAll(variables[i], combination[i]);
+            }
+            return eval(newExpression);
+        }
+    </script>
+</body>
+</html>

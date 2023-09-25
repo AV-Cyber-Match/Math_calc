@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Знаходження похідної</title>
+</head>
+<body>
+	<h1>Знаходження похідної</h1>
+	<form>
+		<label for="func">Функція: </label>
+		<input type="text" id="func" name="func"><br><br>
+		<label for="var">Змінна: </label>
+		<input type="text" id="var" name="var"><br><br>
+		<button type="button" onclick="findDerivative()">Знайти похідну</button>
+	</form>
+	<br>
+	<p id="result"></p>
+
+	<script>
+		function findDerivative() {
+			// Отримуємо значення з полів введення
+			const func = document.getElementById("func").value;
+			const varName = document.getElementById("var").value;
+
+			// Обчислюємо похідну за допомогою mathjs
+			const derivative = math.derivative(func, varName);
+
+			// Виводимо результат
+			document.getElementById("result").innerHTML = "Похідна функції: " + derivative.toString();
+		}
+	</script>
+	<!-- Підключаємо бібліотеку mathjs -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.5.1/math.min.js"></script>
+</body>
+</html>
