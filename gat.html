@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простий Чат</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-width: 400px;
+            width: 100%;
+            overflow-y: scroll;
+            max-height: 300px;
+        }
+
+        #message-input,
+        #username-input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        #send-button {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-top: 10px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-box"></div>
+    <input type="text" id="username-input" placeholder="Введіть ваше ім'я...">
+    <input type="text" id="message-input" placeholder="Введіть ваше повідомлення...">
+    <button id="send-button" onclick="sendMessage()">Відправити</button>
+
+    <script>
+        function sendMessage() {
+            const usernameInput = document.getElementById('username-input');
+            const messageInput = document.getElementById('message-input');
+            const chatBox = document.getElementById('chat-box');
+
+            const username = usernameInput.value;
+            const message = messageInput.value;
+            
+            if (username.trim() === '' || message.trim() === '') return;
+
+            const fullMessage = `${username}: ${message}`;
+            
+            // Append the message to the chat box
+            const messageElement = document.createElement('div');
+            messageElement.textContent = fullMessage;
+            chatBox.appendChild(messageElement);
+
+            // Save the message to LocalStorage
+            const storedMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+            storedMessages.push(fullMessage);
+            localStorage.setItem('chatMessages', JSON.stringify(storedMessages));
+
+            // Clear input after sending message
+            usernameInput.value = '';
+            messageInput.value = '';
+
+            // Scroll to the bottom of the chat box
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Load messages from LocalStorage on page load
+        window.onload = function () {
+            const chatBox = document.getElementById('chat-box');
+            const storedMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+
+            storedMessages.forEach(function (message) {
+                const messageElement = document.createElement('div');
+                messageElement.textContent = message;
+                chatBox.appendChild(messageElement);
+            });
+
+            // Scroll to the bottom of the chat box
+            chatBox.scrollTop = chatBox.scrollHeight;
+        };
+    </script>
+</body>
+</html>
